@@ -9,5 +9,19 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();}});
 document.getElementById('year').textContent=new Date().getFullYear();
 const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){nav.querySelectorAll('a').forEach(a=>a.classList.toggle('active',a.hash==='#'+entry.target.id));}});},{rootMargin:'-15% 0px -65% 0px'});
 document.querySelectorAll('section[id]').forEach(section=>observer.observe(section));
-document.querySelectorAll('[data-copy]').forEach(button=>button.addEventListener('click',async()=>{const value=button.dataset.copy;try{await navigator.clipboard.writeText(value);showToast('Discord username copied: '+value);}catch{showToast('Discord username: '+value);}}));
+document.querySelectorAll('[data-discord]').forEach(link=>link.addEventListener('click',async()=>{const value=link.dataset.discord;try{await navigator.clipboard.writeText(value);showToast('Discord username copied: '+value);}catch{showToast('Add on Discord: '+value);}}));
 let toastTimer;function showToast(message){const toast=document.querySelector('.toast');toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),4500);}
+document.querySelectorAll('[data-service]').forEach(link=>link.addEventListener('click',()=>{
+  document.getElementById('review-service').value=link.dataset.service;
+  const selection=document.getElementById('service-selection');
+  selection.textContent='Interested in: '+link.dataset.service;
+  selection.hidden=false;
+}));
+document.getElementById('audit-request').addEventListener('submit',event=>{
+  event.preventDefault();
+  const form=event.currentTarget;
+  if(!form.reportValidity())return;
+  const request=buildReviewEmail(Object.fromEntries(new FormData(form)));
+  window.location.href=request.url;
+  document.getElementById('request-status').textContent='Your email draft is ready to open. Review and send it in your email app. If it does not open, email audits@uqaabsecurity.com directly.';
+});

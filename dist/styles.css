@@ -19,6 +19,10 @@
 .trusted-logos img{max-width:100%;object-fit:contain;opacity:.88;transition:opacity .2s}
 .trusted-logos img[src$="seda.svg"]{filter:invert(1)}
 .trusted-logos a:hover img{opacity:1}
+.ammplify-lockup{display:flex;align-items:center;gap:13px;font-family:'Manrope',sans-serif;font-size:21px;font-weight:750;letter-spacing:-.025em;white-space:nowrap;line-height:1}
+.ammplify-mark{display:block;flex-shrink:0;width:48px;height:43px;background:url('assets/brand-reference.png') -939px -466px / 1536px 1024px no-repeat;mix-blend-mode:screen}
+@media(max-width:1150px){.ammplify-lockup{gap:7px;font-size:17px}.ammplify-mark{transform:scale(.82);margin:-4px}}
+@media(max-width:600px){.ammplify-lockup{font-size:14px;gap:5px}.ammplify-mark{transform:scale(.7);margin:-6px}}
 .service-plans{align-items:stretch;gap:18px}
 .service-plans .service-card{display:flex;flex-direction:column;min-width:0;padding:29px 25px}
 .service-label{display:inline-flex;align-self:flex-start;border:1px solid #28545d;background:#102d354d;padding:5px 10px;border-radius:4px;color:#9edcd8;font-size:12px;margin-bottom:26px}

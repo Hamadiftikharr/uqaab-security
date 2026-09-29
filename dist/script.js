@@ -9,7 +9,6 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();}});
 document.getElementById('year').textContent=new Date().getFullYear();
 const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){nav.querySelectorAll('a').forEach(a=>a.classList.toggle('active',a.hash==='#'+entry.target.id));}});},{rootMargin:'-15% 0px -65% 0px'});
 document.querySelectorAll('section[id]').forEach(section=>observer.observe(section));
-document.querySelectorAll('[data-discord]').forEach(link=>link.addEventListener('click',async()=>{const value=link.dataset.discord;try{await navigator.clipboard.writeText(value);showToast('Discord username copied: '+value);}catch{showToast('Add on Discord: '+value);}}));
 let toastTimer;function showToast(message){const toast=document.querySelector('.toast');toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),4500);}
 document.querySelectorAll('[data-service]').forEach(link=>link.addEventListener('click',()=>{
   document.getElementById('review-service').value=link.dataset.service;

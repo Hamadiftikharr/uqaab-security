@@ -4,7 +4,7 @@ A responsive, single-page website using plain HTML, CSS and JavaScript. No build
 
 ## Edit the site
 
-- `dist/index.html` — all text, sections, service packages, findings, form fields and social links. Search for `uqaab-security`, `hamadiftikharr`, `UqaabSecurity` or `hamadiftikhar` to update your profiles. Discord links directly to `https://discord.com/users/1079471590011580486` using the user-supplied account ID.
+- `dist/index.html` — all text, sections, service packages, findings, form fields and social links. Search for `uqaab-security`, `hamadiftikharr`, `UqaabSecurity` or `hamadiftikhar` to update your profiles. Both Discord icons use the supplied invite: `https://discord.gg/jaZNPfFzmt`.
 - `dist/styles.css` — theme, layout and responsive styles.
 - `dist/script.js` — mobile navigation, inline icons, current section highlighting, service selection and form behavior.
 - `dist/review-request.js` — creates the prefilled email addressed to `audits@uqaabsecurity.com`. All entered fields and the selected service are included. Email is required; the other fields are optional. The visitor must review and send the draft in their own email client. There is no server submission or stored form data.

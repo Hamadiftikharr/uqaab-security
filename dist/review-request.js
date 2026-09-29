@@ -1,18 +1,32 @@
-function buildReviewEmail(values) {
-  const value = name => String(values[name] || '').trim();
-  const project = value('project').replace(/[\r\n]+/g, ' ');
-  const subject = 'Security review request' + (project ? ' — ' + project : '');
-  const body = [
-    'Hello UQAAB Security,', '',
-    'I would like to discuss a security review.', '',
-    'Review type: ' + (value('service') || 'General security review'),
-    'Project name: ' + (project || 'Not provided'),
-    'Email: ' + value('email'),
-    'Telegram / Discord: ' + (value('handle') || 'Not provided'),
-    'Expected code-freeze date: ' + (value('freeze') || 'Not specified'),
-    'Preferred review window: ' + (value('window') || 'Flexible / to be discussed'),
-    '', 'Repository or scope summary:', value('scope') || 'To be discussed', '',
-    'Thank you.'
-  ].join('\r\n');
-  return {subject, body, url: 'mailto:audits@uqaabsecurity.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body)};
+async function submitAuditRequest(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const button = form.querySelector('button[type="submit"]');
+  const status = document.getElementById('request-status');
+  if (button.disabled || !form.reportValidity()) return;
+
+  button.disabled = true;
+  form.setAttribute('aria-busy', 'true');
+  status.textContent = '';
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' }
+    });
+    if (response.ok) {
+      status.textContent = "Request received. I'll get back to you shortly.";
+    } else {
+      const result = await response.json().catch(() => ({}));
+      const errors = Array.isArray(result.errors)
+        ? result.errors.map(error => error.message).filter(Boolean).join(' ')
+        : '';
+      status.textContent = errors || 'Your request could not be submitted. Please try again.';
+    }
+  } catch {
+    status.textContent = 'Unable to confirm submission. Please check your connection and try again.';
+  } finally {
+    button.disabled = false;
+    form.removeAttribute('aria-busy');
+  }
 }

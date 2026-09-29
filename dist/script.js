@@ -16,11 +16,4 @@ document.querySelectorAll('[data-service]').forEach(link=>link.addEventListener(
   selection.textContent='Interested in: '+link.dataset.service;
   selection.hidden=false;
 }));
-document.getElementById('audit-request').addEventListener('submit',event=>{
-  event.preventDefault();
-  const form=event.currentTarget;
-  if(!form.reportValidity())return;
-  const request=buildReviewEmail(Object.fromEntries(new FormData(form)));
-  window.location.href=request.url;
-  document.getElementById('request-status').textContent='Your email draft is ready to open. Review and send it in your email app. If it does not open, email audits@uqaabsecurity.com directly.';
-});
+document.getElementById('audit-request').addEventListener('submit',submitAuditRequest);

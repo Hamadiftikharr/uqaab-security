@@ -89,21 +89,19 @@
   <section class="container section" id="contact">
     <div class="audit-contact">
       <div class="contact-intro"><p class="eyebrow">Get your code reviewed</p><h2>Ship with<br><span>fewer unknowns.</span></h2><p>Preparing for launch, an upgrade, or a meaningful smart-contract change? Send the scope and I’ll review the repository, timing and likely engagement fit.</p><nav class="icon-links" aria-label="Contact profiles"><a href="https://www.linkedin.com/company/uqaab-security/" target="_blank" rel="noopener noreferrer" aria-label="UQAAB Security on LinkedIn" title="LinkedIn"><img src="assets/linkedin.svg" alt="" width="21" height="21"></a><a href="https://x.com/UqaabSecurity" target="_blank" rel="noopener noreferrer" aria-label="UQAAB Security on X" title="X"><img src="assets/x.svg" alt="" width="20" height="20"></a><a href="https://github.com/hamadiftikharr" target="_blank" rel="noopener noreferrer" aria-label="Hamad Iftikhar on GitHub" title="GitHub"><img src="assets/github.svg" alt="" width="22" height="22"></a><a href="https://discord.gg/jaZNPfFzmt" target="_blank" rel="noopener noreferrer" aria-label="Join UQAAB Security on Discord" title="Join our Discord"><img src="assets/discord.svg" alt="" width="23" height="23"></a><a href="mailto:audits@uqaabsecurity.com" aria-label="Email audits@uqaabsecurity.com" title="Email"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/></svg></a></nav><a class="email-address" href="mailto:audits@uqaabsecurity.com">audits@uqaabsecurity.com</a></div>
-      <form id="audit-request" class="audit-form" action="mailto:audits@uqaabsecurity.com" method="get" enctype="text/plain">
+      <form id="audit-request" class="audit-form" action="https://formspree.io/f/xeaovrbv" method="POST">
         <input type="hidden" id="review-service" name="service" value="General security review">
         <p id="service-selection" class="service-selection" hidden></p>
         <div class="form-grid">
           <div class="field"><label for="project-name">Project name <span>(optional)</span></label><input id="project-name" name="project" type="text" autocomplete="organization" maxlength="120" placeholder="Your protocol or project"></div>
           <div class="field"><label for="request-email">Email <span class="required">*</span></label><input id="request-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@project.com"></div>
-          <div class="field"><label for="request-handle">Telegram / Discord <span>(optional)</span></label><input id="request-handle" name="handle" type="text" maxlength="120" placeholder="@username"></div>
-          <div class="field"><label for="code-freeze">Expected code-freeze date <span>(optional)</span></label><input id="code-freeze" name="freeze" type="date"></div>
+          <div class="field"><label for="request-handle">Telegram / Discord <span>(optional)</span></label><input id="request-handle" name="contact" type="text" maxlength="120" placeholder="@username"></div>
+          <div class="field"><label for="code-freeze">Expected code-freeze date <span>(optional)</span></label><input id="code-freeze" name="code_freeze" type="date"></div>
           <div class="field full-width"><label for="scope-summary">Repository or scope summary</label><textarea id="scope-summary" name="scope" rows="4" maxlength="3000" placeholder="Repository URL, contracts in scope, key changes or questions you’d like reviewed"></textarea></div>
-          <div class="field full-width"><label for="review-window">Preferred review window</label><input id="review-window" name="window" type="text" maxlength="200" placeholder="e.g. Early November, or flexible"></div>
+          <div class="field full-width"><label for="review-window">Preferred review window</label><input id="review-window" name="review_window" type="text" maxlength="200" placeholder="e.g. Early November, or flexible"></div>
         </div>
         <button class="button primary submit-request" type="submit">Submit request <span aria-hidden="true">→</span></button>
-        <p class="form-note" id="form-help">Submitting opens your email client with the request prefilled.</p>
         <p id="request-status" class="request-status" role="status" aria-live="polite"></p>
-        <noscript><p class="form-note">For a formatted request, email your project details directly to <a href="mailto:audits@uqaabsecurity.com">audits@uqaabsecurity.com</a>.</p></noscript>
       </form>
     </div>
   </section>

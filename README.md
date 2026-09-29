@@ -7,7 +7,7 @@ A responsive, single-page website using plain HTML, CSS and JavaScript. No build
 - `dist/index.html` — all text, sections, service packages, findings, form fields and social links. Search for `uqaab-security`, `hamadiftikharr`, `UqaabSecurity` or `hamadiftikhar` to update your profiles. Both Discord icons use the supplied invite: `https://discord.gg/jaZNPfFzmt`.
 - `dist/styles.css` — theme, layout and responsive styles.
 - `dist/script.js` — mobile navigation, inline icons, current section highlighting, service selection and form behavior.
-- `dist/review-request.js` — creates the prefilled email addressed to `audits@uqaabsecurity.com`. All entered fields and the selected service are included. Email is required; the other fields are optional. The visitor must review and send the draft in their own email client. There is no server submission or stored form data.
+- `dist/review-request.js` — submits the audit form to `https://formspree.io/f/xeaovrbv` via POST, with inline success or error feedback. All entered fields and the selected service are included. Email is required; the other fields are optional. Without JavaScript, the form uses Formspree's standard submission page. No email client is opened by the form.
 - `dist/assets/logo-original.png` — your unmodified original logo. CSS applies a teal and white gradient through its transparency, preserving its exact shape.
 - `dist/assets/eagle-hero.png` — custom eagle artwork.
 
